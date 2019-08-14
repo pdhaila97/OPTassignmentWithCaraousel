@@ -1,0 +1,213 @@
+<div class="carousel slide">
+            <div class="carousel-inner">
+                    <div class="address item active">
+                        <form id="address_form">
+                            <label for="address">Address<span id = "red_star">&#42;</span></label><br>
+                            <div class="address_text_input">
+                                <input type="text" name="street_address_1" id="street_address_1" placeholder="Street Address"><br>
+                                <input type="text" name="street_address_2" id="street_address_2" placeholder="Street Address 2"><br>
+                                <input type="text" name="city" id="city" placeholder="City">
+                                <input type="text" name="state" id="state" placeholder="State"><br>
+                                <input type="text" name="zip" id="zip" placeholder="Zip Code">
+                                <select name="country" id="country">
+                                    <option value=""></option>
+                                    <option value="India">India</option>
+                                    <option value="Nepal">Nepal</option>
+                                    <option value="Bhutan">Bhutan</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="Sri Lanka">Sri Lanka</option>
+                                </select>
+                            </div>
+                            
+                        </form>
+                        <div class="address_previous address_previous_text">
+                            <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                        </div>
+                        <div class="address_next address_next_text">
+                            <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                        </div>
+                    </div>
+                    <div class="email item">
+                        <form id="email_form">
+                            <label for="email">E-mail</label><br>
+                            <div class="email_text_input">
+                                <input type="text" name="email" id="email" placeholder="ex: email@yahoo.com">                    
+                            </div>
+                        </form>
+                        <div class="email_previous email_previous_text">
+                            <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                        </div>
+                        <div class="email_next email_next_text">
+                            <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                        </div>
+                    </div>
+                    <div class="feedback item">
+                        <form id="feedback_form">
+                            <label for="feedback">Feedback about us:</label><br>
+                            <div class="feedback_text_input">
+                                <textarea name="feedback" id="feedback"></textarea>                   
+                            </div>
+                            
+                        </form>
+                        <div class="feedback_previous feedback_previous_text">
+                            <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                        </div>
+                        <div class="feedback_next feedback_next_text">
+                            <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                        </div>
+                    </div>
+                    <div class="full_name item">
+                        <form id="full_name_form">
+                            <label for="full_name">Full Name<span id = "red_star">&#42;</span></label><br>
+                            <div class="full_name_text_input">
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name">
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+                            </div>
+                            
+                        </form>
+                        <div class="full_name_next full_name_next_text">
+                            <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                        </div>
+                    </div>
+                    <div class="others item">
+                            <form id="others_form">
+                                <label for="others">Other<span id = "red_star">&#42;</span></label><br>
+                                <div class="others_text_input">
+                                    <input type="text" name="others" id="others">                
+                                </div>
+                                
+                            </form>
+                            <div class="others_previous others_previous_text">
+                                <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                            </div>
+                            <div class="others_next others_next_text">
+                                <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                            </div>
+                    </div>
+                    <div class="phone item">
+                            <form id="phone_form">
+                                <label for="phone">Phone Number<span id = "red_star">&#42;</span></label><br>
+                                <div class="phone_text_input">
+                                    <input type="number" name="area_code" id="area_code" placeholder="Area Code">                    
+                                    <input type="number" name="phone_number" id="phone_number" placeholder="Phone Number">
+                                    
+                                </div>
+                                
+                            </form>
+                            <div class="phone_previous phone_previous_text">
+                                <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                            </div>
+                            <div class="phone_next phone_next_text">
+                                <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                            </div>
+                    
+                    </div>
+                    <div class="query item">
+                            <form id="query_form">
+                                <label for="query">How did you hear about us?<span id = "red_star">&#42;</span></label><br>
+                                <div class="query_text_input">
+                                    <select name="query" id="query">
+                                        <option value=""></option>
+                                        <option value="Newspaper">Newspaper</option>
+                                        <option value="Internet">Internet</option>
+                                        <option value="Magazine">Magazine</option>
+                                        <option value="Others">Others</option>
+                                    </select>                 
+                                </div>
+                                
+                            </form>
+                            <div class="query_previous query_previous_text">
+                                <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                            </div>
+                            <div class="query_next query_next_text">
+                                <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                            </div>
+                    </div>
+                    <div class="recommendation item">
+                            <form id="recommendation_form">
+                                <label for="recommendation">Will you be willing to recommend us?</label><br>
+                                <div class="recommendation_text_input">
+                                    <div class="recommendation_checkbox">
+                                        <input type="checkbox" name="recommendation_yes" id="recommendation_yes" value="Yes"><span class="recommendation_checkbox_text"> Yes</span><br>
+                                    </div>
+                                    <div class="recommendation_checkbox">
+                                        <input type="checkbox" name="recommendation_maybe" id="recommendation_maybe" value="Maybe"><span class="recommendation_checkbox_text"> Maybe</span><br>
+                                    </div>
+                                    <div class="recommendation_checkbox">
+                                        <input type="checkbox" name="recommendation_no" id="recommendation_no" value="No"><span class="recommendation_checkbox_text"> No</span><br>
+                                    </div>              
+                                </div>
+                                
+                            </form>
+                            <div class="recommendation_previous recommendation_previous_text">
+                                <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                            </div>
+                            <div class="recommendation_next recommendation_next_text">
+                                <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                            </div>
+                    </div>
+                    <div class="reference item">
+                            <form id="reference_form">
+                                <label for="reference">Please give reference of any two people whom you feel:</label><br>
+                                <div class="reference_text_input">
+                                    <table id="reference_table">
+                                        <tr>
+                                            <th></th>
+                                            <th>Full Name</th>
+                                            <th>Address</th>
+                                            <th>Contact Number</th>
+                                        </tr>
+                                        <tr id='reference_1'>
+                                            <td class="reference_num">1</td>
+                                            <td><input type="text" name="reference_1_full_name" id="reference_1_full_name"></td>
+                                            <td><input type="text" name="reference_1_address" id="reference_1_address"></td>
+                                            <td><input type="text" name="reference_1_number" id="reference_1_number"></td>
+                                        </tr>
+                                        <tr id='reference_2'>
+                                            <td class="reference_num">2</td>
+                                            <td><input type="text" name="reference_2_full_name" id="reference_2_full_name"></td>
+                                            <td><input type="text" name="reference_2_address" id="reference_2_address"></td>
+                                            <td><input type="text" name="reference_2_number" id="reference_2_number"></td>
+                                        </tr>
+                                    </table>             
+                                </div>
+                                
+                            </form>
+                            <div class="reference_previous reference_previous_text">
+                                <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                            </div>
+                            <div class="reference_next reference_next_text">
+                                <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                            </div>
+                    </div>
+                    <div class="suggestions item">
+                            <form id="suggestions_form">
+                                <label for="suggestions">Suggestions if any for further improvement:</label><br>
+                                <div class="suggestions_text_input">
+                                    <textarea name="suggestions" id="suggestions"></textarea>                   
+                                </div>
+                                
+                            </form>
+                            <div class="suggestions_previous suggestions_previous_text">
+                                <p><span class="left_arrow">&#8592;</span> PREVIOUS</p>
+                            </div>
+                            <div class="suggestions_next suggestions_next_text">
+                                <p>NEXT <span class="right_arrow">&#8594;</span></p>
+                            </div>
+                    </div>
+            </div>
+            
+
+
+            
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+            <div class="carousel-indicators"></div>
+        </div>

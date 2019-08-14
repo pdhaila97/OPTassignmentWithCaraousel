@@ -1,0 +1,10 @@
+radio_full_name.classList.remove("big_option");
+    radio_address.classList.remove("big_option");    
+    radio_phone_number.classList.remove("big_option");
+    radio_email.classList.remove("big_option");
+    radio_query.classList.remove("big_option");
+    radio_feedback.classList.remove("big_option");
+    radio_suggestions.classList.remove("big_option");
+    radio_recommendation.classList.remove("big_option");
+    radio_reference.classList.remove("big_option");
+    radio_others.classList.remove("big_option");
