@@ -2,7 +2,7 @@ let next = document.getElementsByClassName("next");
 let next1 = document.getElementsByClassName("next1");
 let previous = document.getElementsByClassName("previous");
 
-var reg_start_p = document.getElementsByClassName("start")[0];
+var reg_start_p = document.getElementsByClassName("start");
 var first_name = document.getElementById("first_name");
 var last_name = document.getElementById("last_name");
 var full_name = document.getElementsByClassName("full_name")[0];
@@ -33,16 +33,32 @@ var left_arrow = document.getElementsByClassName("left_arrow");
 var right_arrow = document.getElementsByClassName("right_arrow");
 var error = document.getElementsByClassName("error")[0];
 var end = document.getElementsByClassName("end")[0];
-var myCarousel = document.getElementsByClassName("myCarousel")[0];
+//var myCarousel = document.getElementsByClassName("myCarousel")[0];
 var temp_radio_inline = document.createElement("label");
 temp_radio_inline.setAttribute("class", "radio-inline addOthersRadio");
 var attrObj = {"data-toggle" : "tooltip"
     , "title" : "Others", "class" : "radio_others", "type" : "radio", "name": "optradio"};
 var checkFilled = {"Full Name" : false, "Address" : false, "Phone Number" : false, "Query" : false, "Others" : false};
+var owl = $('.owl-carousel');
+let final_next = document.getElementsByClassName("final_next")[0];
+let next_sp = document.getElementsByClassName('next_sp');
+
+
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+    items:1,
+    center: true,
+    mouseDrag: false
+    });
+});
+
+
+
 
 function end_func() {
     refresh_error();
     clear_all();
+    document.getElementsByClassName("owl-carousel")[0].style.display = "none";
     reference.style.display = "none";
     end.style.display = "block";
     setTimeout(function(){
@@ -55,48 +71,47 @@ function end_func() {
 
 let nextMapObject = {
     "address" : address_validate,
-    "customer_details" : full_name,
+    // "customer_details" : full_name,
     "email" : email_validate,
-    "feedback" : suggestions,
+    // "feedback" : suggestions,
     "full_name" : full_name_validate ,
     "others" : others_validate, 
     "phone" : phone_validate,
     "query" : query_validation, //skipping the othres page
-    "recommendation" : reference,
-    "reference" : end,
-    "suggestions" : recommendation,
+    // "recommendation" : reference,
+    // "reference" : end,
+    // "suggestions" : recommendation,
 }
 
-let nextMapWOValidationObject = {
-    "address" : phone,
-    "customer_details" : full_name,
-    "email" : query_class,
-    "feedback" : suggestions,
-    "full_name" : address ,
-    "others" : feedback, 
-    "phone" : email,
-    "query" : feedback, //skipping the othres page
-    "recommendation" : reference,
-    "reference" : end,
-    "suggestions" : recommendation,
-}
+// let nextMapWOValidationObject = {
+//     "address" : phone,
+//     "customer_details" : full_name,
+//     "email" : query_class,
+//     "feedback" : suggestions,
+//     "full_name" : address ,
+//     "others" : feedback, 
+//     "phone" : email,
+//     "query" : feedback, //skipping the othres page
+//     "recommendation" : reference,
+//     "reference" : end,
+//     "suggestions" : recommendation,
+// }
 
-let prevMapObject = {
-    "address" : full_name,
-    "email" : phone,
-    "feedback" : select_others_or_query,
-    "others" : query_class, 
-    "phone" : address,
-    "query" : email, 
-    "recommendation" : suggestions,
-    "reference" : recommendation,
-    "suggestions" : feedback,
-}
+// let prevMapObject = {
+//     "address" : full_name,
+//     "email" : phone,
+//     "feedback" : select_others_or_query,
+//     "others" : query_class, 
+//     "phone" : address,
+//     "query" : email, 
+//     "recommendation" : suggestions,
+//     "reference" : recommendation,
+//     "suggestions" : feedback,
+// }
 
 function gotoNextPage () {
-    clear_all();
+    error.style.display = "none";
     let nextPage = nextMapObject[this.parentElement.classList[0]];
-    //let radioOpn = radioMapObject[nextPage.classList[0]];
     if(nextPage == end){
         end_func();
     }else{
@@ -105,30 +120,32 @@ function gotoNextPage () {
         }else{
             nextPage.style.display = "block";
         }
-        
-        //radioOpn.style.checked = "true";
-    }
-    //console.log(nextPage);
-    //console.log(radioOpn);
-}
-
-function gotoPrevPage () {
-    clear_all();
-    let prevPage = prevMapObject[this.parentElement.classList[0]];
-    //console.log(prevPage);
-    if(typeof prevPage == "function"){
-        prevPage(this);
-    }else{
-        prevPage.style.display = "block";
     }
 }
 
-clear_all();
-welcome.style.display = "block";
+// function gotoPrevPage () {
+//     clear_all();
+//     let prevPage = prevMapObject[this.parentElement.classList[0]];
+//     if(typeof prevPage == "function"){
+//         prevPage(this);
+//     }else{
+//         prevPage.style.display = "block";
+//     }
+// }
+
+function nextPage() {
+    error.style.display = "none";
+    owl.trigger('owl.next');
+}
+
+function prevPage() {
+    error.style.display = "none";
+    owl.trigger('owl.prev');
+}
 
 if(next){
     for(let i = 0; i < next.length; i++){
-        next[i].addEventListener('click', gotoNextPage);
+        next[i].addEventListener('click', nextPage);
         next[i].addEventListener('mouseover', arrow_animate);
     }
 }
@@ -140,16 +157,32 @@ if(next1) {
     }
 }
 
-if(reg_start_p){
-    reg_start_p.addEventListener('mouseover', arrow_animate);
-    reg_start_p.addEventListener('click', customer_details_page);
+
+if(next_sp) {
+    for(let i = 0; i < next_sp.length; i++){
+        next_sp[i].addEventListener('click', gotoNextPage);
+        next_sp[i].addEventListener('mouseover', arrow_animate);
+    }
 }
+
+
+if(reg_start_p){
+    for(let i = 0; i < reg_start_p.length; i++){
+        reg_start_p[i].addEventListener('click', nextPage);
+        reg_start_p[i].addEventListener('mouseover', arrow_animate);
+    }
+}
+
 
 if(previous) {
     for(let i = 0; i < previous.length; i++){
-        previous[i].addEventListener('click', gotoPrevPage);
+        previous[i].addEventListener('click', prevPage);
         previous[i].addEventListener('mouseover', arrow_animate_previous);
     }
+}
+
+if(final_next){
+    final_next.addEventListener('click', end_func);
 }
 
 function refresh_error() {
@@ -157,30 +190,33 @@ function refresh_error() {
     error.style.display = "none";
 }
 
-function clear_all() {
-    welcome.style.display = "none";
-    myCarousel.style.display = "none";
-    error.style.display = "none";
-    address.style.display = "none";
-    customer_details.style.display = "none";
-    email.style.display = "none";
-    feedback.style.display = "none";
-    full_name.style.display = "none";
-    others.style.display = "none";
-    phone.style.display = "none";
-    query_class.style.display = "none";
-    recommendation.style.display = "none";
-    reference.style.display = "none";
-    suggestions.style.display = "none";
-    end.style.display = "none";
-} 
 
 
-function customer_details_page(){
-    refresh_error();
-    clear_all();
-    customer_details.style.display = "block";
-}
+
+// function clear_all() {
+//     welcome.style.display = "none";
+//     //myCarousel.style.display = "none";
+//     error.style.display = "none";
+//     address.style.display = "none";
+//     customer_details.style.display = "none";
+//     email.style.display = "none";
+//     feedback.style.display = "none";
+//     full_name.style.display = "none";
+//     // others.style.display = "none";
+//     phone.style.display = "none";
+//     query_class.style.display = "none";
+//     recommendation.style.display = "none";
+//     reference.style.display = "none";
+//     suggestions.style.display = "none";
+//     end.style.display = "none";
+// } 
+
+
+// function customer_details_page(){
+//     refresh_error();
+//     clear_all();
+//     customer_details.style.display = "block";
+// }
 
 function mouse_inside_text(event) {
     event.target.ogplaceholder = event.target.placeholder;
@@ -198,10 +234,11 @@ function full_name_validate(ref) {
         error.style = "display:block; bottom: 39%";
         class_vibrate(ref);
     }else{
-        clear_all();
-        checkFilled["Full Name"] = true;
-        console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
-        nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";        
+        owl.trigger('owl.next');
+        // clear_all();
+        // checkFilled["Full Name"] = true;
+        // console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
+        // nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";        
     }
 }
 
@@ -215,10 +252,11 @@ function address_validate(ref) {
         error.style = "display:block; bottom:25%";
         class_vibrate(ref);
     }else{
-        clear_all();
-        checkFilled["Address"] = true;
-        console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
-        nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";
+        owl.trigger('owl.next');
+        // clear_all();
+        // checkFilled["Address"] = true;
+        // console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
+        // nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";
     }
 }
 
@@ -229,21 +267,23 @@ function phone_validate(ref) {
         checkFilled["Phone Number"] = false;
         class_vibrate(ref);
     }else{
-        clear_all();
-        checkFilled["Phone Number"] = true;
-        console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
-        nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";
+        owl.trigger('owl.next');
+        // clear_all();
+        // checkFilled["Phone Number"] = true;
+        // console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
+        // nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";
     }
 }
 
 function email_validate(ref) {
-    ref.parentElement.style.display = "block";
+    //ref.parentElement.style.display = "block";
     if(email_inp.value=="" || /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email_inp.value)){
         error.textContent = "This field is required.";      
-        clear_all();
-        checkFilled["Email"] = true;
-        console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
-        nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";
+        //clear_all();
+        owl.trigger('owl.next');
+        // checkFilled["Email"] = true;
+        // console.log(nextMapWOValidationObject[ref.parentElement.classList[0]]);
+        // nextMapWOValidationObject[ref.parentElement.classList[0]].style.display = "block";
     }else{
         error.textContent = "Incorrect Format";
         error.style = "display:block; bottom: 39%";
@@ -258,15 +298,16 @@ function query_validation(ref) {
         checkFilled["Query"] = false;
         class_vibrate(ref);
     }else{
-        clear_all();
-        checkFilled["Query"] = true;
-        if(query.value == "Others"){
-            others_selected = true;
-            others.style.display = "block";
-        }else{
-            others_selected = false;
-            feedback.style.display = "block";
-        }
+        owl.trigger('owl.next');
+        // clear_all();
+        // checkFilled["Query"] = true;
+        // if(query.value == "Others"){
+        //     others_selected = true;
+        //     others.style.display = "block";
+        // }else{
+        //     others_selected = false;
+        //     feedback.style.display = "block";
+        // }
     }
 }
 
@@ -332,6 +373,15 @@ function removeVibrateClass_arrow_prev() {
     }
 }
 
+
+
+// $('next').click(function() {
+//     owl.trigger('next.owl.carousel');
+// });
+
+// $('.previous').click(function() {
+//     owl.trigger('prev.owl.carousel', [300]);
+// });
 
 
 // function setAttrHelp (){

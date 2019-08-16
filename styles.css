@@ -114,19 +114,67 @@ body {
 }
 
 
+.next_sp {
+    right: 0;
+    background-color:#e78d81;
+    position: absolute;
+    bottom: 0%;
+    width: 50%;
+    height: 2.5em;
+    align-content: right;
+}
+
+.next_sp_text{
+    padding-top: 1.5%;
+    padding-left: 35%;
+    font-size: 20px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.next_sp:hover{
+    cursor: pointer;
+    background-color: #c40b26;
+}
+
+.final_next {
+    right: 0;
+    background-color:#e78d81;
+    position: absolute;
+    bottom: 0%;
+    width: 50%;
+    height: 2.5em;
+    align-content: right;
+}
+
+.final_next_text{
+    padding-top: 1.5%;
+    padding-left: 35%;
+    font-size: 20px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+.final_next:hover{
+    cursor: pointer;
+    background-color: #c40b26;
+}
+
+
+
 .next1:hover{
     cursor: pointer;
     background-color: #c40b26;
 }
 
-.next1_text{
+.customer_details .big_text_XL, .next1_text{
     padding-bottom: 8%;
     font-size: 24px;
     font-weight: 500;
     color: aliceblue;
 }
 
-.next1{
+.customer_details .start, .next1{
     background-color:#e78d81;
     position: absolute;
     bottom: 0%;
@@ -1167,3 +1215,14 @@ hr {
 .green_color {
     color: green;
 }
+
+html, body, .owl-carousel , .owl-wrapper-outer, .owl-wrapper, .owl-item, .container{
+    height: 98%;
+}
+
+.container div{
+    position: relative;
+    top:20%;
+    height: auto;
+}
+
